@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
     // SPP UUID service
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
-    // change this line depending on our bluetooth module MAC address
-    private static String address = "00:15:FF:F2:19:5F";
+    // MAC address of the HC-05 bluetooth module
+    private static String address = "00:14:03:06:8E:DB";
 
     private BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
@@ -76,13 +76,13 @@ public class MainActivity extends AppCompatActivity {
                 switch (msg.what) {
                     case RECIEVE_MESSAGE:                                                   // if receive massage
                         byte[] readBuf = (byte[]) msg.obj;
-                        String strIncom = new String(readBuf, 0, msg.arg1);          // create string from bytes array
+                        String strIncom = new String(readBuf,0,msg.arg1);            // convert the data message to a string
                         sb.append(strIncom);                                                // append string
-                        int endOfLineIndex = sb.indexOf("\r\n");                            // determine the end-of-line
+                        int endOfLineIndex = sb.indexOf("~");                            // determine the end-of-line
                         if (endOfLineIndex > 0) {                                            // if end-of-line,
-                            String sbprint = sb.substring(0, endOfLineIndex);               // extract string
+                            String sbprint = sb.substring(1, endOfLineIndex);               // extract string, first index is #
                             sb.delete(0, sb.length());                                      // and clear
-                            bluetoothData.setText("Data from Arduino: " + sbprint);            // update TextView
+                            bluetoothData.setText("Weight of Content: " + sbprint);            // update TextView
                         }
                         //Log.d(TAG, "...String:"+ sb.toString() +  "Byte:" + msg.arg1 + "...");
                         break;
