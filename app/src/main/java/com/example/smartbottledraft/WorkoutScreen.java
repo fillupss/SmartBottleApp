@@ -37,7 +37,7 @@ public class WorkoutScreen extends AppCompatActivity {
             @Override
             public void onFinish() {
                 // play sound
-                /*if(player == null){
+                if(player == null){
                     player = MediaPlayer.create(WorkoutScreen.this, R.raw.sound);
                     player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -46,7 +46,7 @@ public class WorkoutScreen extends AppCompatActivity {
                         }
                     });
                 }
-                player.start();*/
+                player.start();
                 countDownTimer.cancel();
             }
         }.start();

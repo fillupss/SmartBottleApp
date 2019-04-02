@@ -27,6 +27,11 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <service
+            android:name="com.example.smartbottledraft.MyService"
+            android:enabled="true"
+            android:exported="true" />
+
         <activity android:name="com.example.smartbottledraft.BluetoothScreen" />
         <activity android:name="com.example.smartbottledraft.NormalScreen" />
         <activity android:name="com.example.smartbottledraft.NormalMode" />
