@@ -1,5 +1,7 @@
 package com.example.smartbottledraft;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -42,9 +44,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // quit the application
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void onClickQuit(View view){
-        finish();
-        moveTaskToBack(true);
+        finishAffinity();
+        System.exit(0);
     }
 
     // go to the modes screen
