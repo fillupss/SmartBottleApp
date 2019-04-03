@@ -22,7 +22,6 @@
             android:enabled="true"
             android:exported="true"></service>
 
-        <activity android:name=".BluetoothScreen" />
         <activity android:name=".NormalScreen" />
         <activity android:name=".NormalMode" />
         <activity android:name=".WorkoutScreen" />
