@@ -15,9 +15,6 @@ import android.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.UUID;
 
 /*

@@ -11,9 +11,9 @@ import android.widget.TextView;
 
 public class WorkoutScreen extends AppCompatActivity {
 
-    private long secondsToAlarm = 10000; // will change later
+    private long secondsToAlarm = 60000; // will change later
     private CountDownTimer countDownTimer;
-    private TextView displayTime;
+    private TextView displayTime, displayData;
     private MediaPlayer player;
 
 
@@ -21,13 +21,33 @@ public class WorkoutScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_screen);
-        displayTime = (TextView)findViewById(R.id.displayTime) ;
+        displayTime = (TextView)findViewById(R.id.displayTime);
+        displayData = (TextView)findViewById(R.id.displayData);
         startTimer();
+        Thread thread = new Thread(){
+            @Override
+            public void run(){
+                try{
+                    while(!isInterrupted()){
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                updateData();
+                            }
+                        });
+                    }
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        thread.start();
     }
 
     public void startTimer(){
         // 900 to avoid the bug of stopping at 1 second
-        countDownTimer = new CountDownTimer(secondsToAlarm, 900) {
+        countDownTimer = new CountDownTimer(secondsToAlarm, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 secondsToAlarm = millisUntilFinished;
@@ -85,4 +105,7 @@ public class WorkoutScreen extends AppCompatActivity {
         startActivity(i);
     }
 
+    private void updateData(){
+        displayData.setText(MyService.getData());
+    }
 }

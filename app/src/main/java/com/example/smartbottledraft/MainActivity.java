@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
 
     MyService myService;
     boolean isBound = false;
-    private TextView bluetoothData;
     private static final String TAG = "MainActivity";
 
 
@@ -21,16 +20,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bluetoothData = findViewById(R.id.bluetoothData);
     }
 
 
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "" + isBound);
-        if(isBound)
-            bluetoothData.setText(myService.getData());
     }
 
 
@@ -48,9 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
     // quit the application
     public void onClickQuit(View view){
-        //finish();
-        //moveTaskToBack(true);
-        bluetoothData.setText(MyService.getData());
+        finish();
+        moveTaskToBack(true);
     }
 
     // go to the modes screen
@@ -71,5 +65,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+
 
 }
