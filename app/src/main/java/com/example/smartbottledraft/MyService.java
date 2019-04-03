@@ -2,14 +2,12 @@ package com.example.smartbottledraft;
 
 import android.app.Service;
 import android.content.Intent;
-import android.os.Binder;
 import android.os.IBinder;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
@@ -37,16 +35,13 @@ public class MyService extends Service {
     private StringBuilder sb = new StringBuilder();
     private ConnectedThread mConnectedThread;
     private ConnectingThread mConnectingThread;
-    private String sbprint; // the data to be used in other activities
+    private  static String sbprint; // the data to be used in other activities
 
     // SPP UUID service
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     // MAC address of the HC-05 bluetooth module
     private static String address = "00:14:03:06:8E:DB";
-
-    // bridge between client and service
-    private final IBinder myBinder = new MyLocalBinder();
 
     private BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
@@ -73,10 +68,6 @@ public class MyService extends Service {
         }
     };
 
-
-    public MyService() {
-    }
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -86,13 +77,8 @@ public class MyService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        return myBinder;
-    }
 
-    public class MyLocalBinder extends Binder {
-        MyService getService(){
-            return MyService.this;
-        }
+        return null;
     }
 
     @Override
@@ -109,9 +95,9 @@ public class MyService extends Service {
                         int endOfLineIndex = sb.indexOf("~");                            // determine the end-of-line
                         if (endOfLineIndex > 0) {                                            // if end-of-line,
                             sbprint = sb.substring(1, endOfLineIndex);               // extract string, first index is #
-                            sb.delete(0, sb.length());                                      // and clear
+                            sb.delete(0, sb.length());
+                            Log.d(TAG, sbprint);
                         }
-                        //Log.d(TAG, "...String:"+ sb.toString() +  "Byte:" + msg.arg1 + "...");
                         break;
                 }
             };
@@ -127,29 +113,24 @@ public class MyService extends Service {
         // device does not have bluetooth
         if(mBluetoothAdapter == null){
             Log.d(TAG, "enableDisable: Does not have BT capabilities");
+            stopSelf();
         }
-        // enable bluetooth
-        else if(!mBluetoothAdapter.isEnabled()){
-            Log.d(TAG, "enableDisableBT enable");
-            Intent enableBTIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivity(enableBTIntent);
-
-            // the intentfilter is to catch the status of bluetooth like on/off
-            IntentFilter BTIntent = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-            registerReceiver(mBroadcastReceiver1, BTIntent);
-
-            BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
-            mConnectingThread = new ConnectingThread(device);
-            mConnectingThread.start();
-        }
-        // disable bluetooth
-        else if(mBluetoothAdapter.isEnabled()){
-            Log.d(TAG, "enableDisableBT disable");
-            mBluetoothAdapter.disable();
-
-            // the intentfilter is to catch the status of bluetooth like on/off
-            IntentFilter BTIntent = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
-            registerReceiver(mBroadcastReceiver1, BTIntent);
+        else{
+            if(mBluetoothAdapter.isEnabled()){
+                try{
+                    Log.d(TAG, "Attempting to connect to bluetooth device");
+                    BluetoothDevice device = mBluetoothAdapter.getRemoteDevice(address);
+                    mConnectingThread = new ConnectingThread(device);
+                    mConnectingThread.start();
+                }catch(Exception e){
+                    e.printStackTrace();
+                    stopSelf();
+                }
+            }
+            else{
+                Log.d(TAG,"Bluetooth not turned on. Stopping service");
+                stopSelf();
+            }
         }
     }
 
@@ -173,6 +154,7 @@ public class MyService extends Service {
         if(mConnectedThread != null){
             mConnectedThread.close();
         }
+        stopSelf();
     }
 
 
@@ -258,13 +240,8 @@ public class MyService extends Service {
         }
     }
 
-    public String getData(){
+    public static String getData(){
         return sbprint;
     }
 
-    // delete later
-    public String getCurrentTime(){
-        SimpleDateFormat df = new SimpleDateFormat("HH:mm:ss", Locale.US);
-        return df.format(new Date());
-    }
 }
