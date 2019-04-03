@@ -1,4 +1,4 @@
-#Wed Mar 27 20:20:51 PDT 2019
+#Tue Apr 02 22:05:37 PDT 2019
 base.0=/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/dex/debug/mergeDexDebug/out
 path.0=classes.dex
 renamed.0=classes.dex
