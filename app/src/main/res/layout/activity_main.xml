@@ -67,4 +67,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tutorial" />
 
+    <ImageView
+        android:id="@+id/lightbulb"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/lightbulb" />
+
+    <ImageView
+        android:id="@+id/bottle"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lightbulb"
+        app:srcCompat="@mipmap/bigbottle" />
+
 </android.support.constraint.ConstraintLayout>

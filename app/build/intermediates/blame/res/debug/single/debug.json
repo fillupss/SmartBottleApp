@@ -112,8 +112,16 @@
         "source": "/Users/philipchen/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d272bfc44bde42f6b567ab07d77bfdfc/res/drawable-hdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
     },
     {
+        "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/mipmap-mdpi_waterbottle0.png.flat",
+        "source": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/src/main/res/mipmap-mdpi/waterbottle0.png"
+    },
+    {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable_notification_icon_background.xml.flat",
         "source": "/Users/philipchen/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c32c5cd4923f5fd838cac1ffe2ac5239/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/mipmap-mdpi_bigbottle.png.flat",
+        "source": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/src/main/res/mipmap-mdpi/bigbottle.png"
     },
     {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
@@ -174,6 +182,10 @@
     {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
         "source": "/Users/philipchen/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d272bfc44bde42f6b567ab07d77bfdfc/res/drawable-hdpi-v4/abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/mipmap-mdpi_waterbottle2.png.flat",
+        "source": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/src/main/res/mipmap-mdpi/waterbottle2.png"
     },
     {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -314,6 +326,10 @@
     {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "/Users/philipchen/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c32c5cd4923f5fd838cac1ffe2ac5239/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/mipmap-mdpi_lightbulb.png.flat",
+        "source": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/src/main/res/mipmap-mdpi/lightbulb.png"
     },
     {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
@@ -506,10 +522,6 @@
     {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/layout_abc_dialog_title_material.xml.flat",
         "source": "/Users/philipchen/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d272bfc44bde42f6b567ab07d77bfdfc/res/layout/abc_dialog_title_material.xml"
-    },
-    {
-        "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/layout_activity_normal_mode.xml.flat",
-        "source": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/src/main/res/layout/activity_normal_mode.xml"
     },
     {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -1232,6 +1244,10 @@
         "source": "/Users/philipchen/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d272bfc44bde42f6b567ab07d77bfdfc/res/drawable/abc_item_background_holo_light.xml"
     },
     {
+        "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/mipmap-mdpi_waterbottle1.png.flat",
+        "source": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/src/main/res/mipmap-mdpi/waterbottle1.png"
+    },
+    {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
         "source": "/Users/philipchen/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/c32c5cd4923f5fd838cac1ffe2ac5239/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
     },
@@ -1492,6 +1508,10 @@
         "source": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/src/main/res/layout/activity_how_to_use_screen.xml"
     },
     {
+        "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/mipmap-mdpi_waterbottle3.png.flat",
+        "source": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/src/main/res/mipmap-mdpi/waterbottle3.png"
+    },
+    {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
         "source": "/Users/philipchen/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d272bfc44bde42f6b567ab07d77bfdfc/res/drawable-xhdpi-v4/abc_ic_menu_cut_mtrl_alpha.png"
     },
@@ -1634,6 +1654,10 @@
     {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "/Users/philipchen/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d272bfc44bde42f6b567ab07d77bfdfc/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/mipmap-mdpi_waterbottle4.png.flat",
+        "source": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/src/main/res/mipmap-mdpi/waterbottle4.png"
     },
     {
         "merged": "/Users/philipchen/AndroidStudioProjects/SmartBottleDraft/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal.9.png.flat",

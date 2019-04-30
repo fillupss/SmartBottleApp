@@ -23,7 +23,6 @@
             android:exported="true"></service>
 
         <activity android:name=".NormalScreen" />
-        <activity android:name=".NormalMode" />
         <activity android:name=".WorkoutScreen" />
         <activity android:name=".SickoScreen" />
         <activity android:name=".ModesScreen" />
