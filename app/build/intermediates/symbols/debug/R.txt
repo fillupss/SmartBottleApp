@@ -873,6 +873,7 @@ int mipmap waterbottle3 0x7f0a0009
 int mipmap waterbottle4 0x7f0a000a
 int mipmap workout 0x7f0a000b
 int raw sound 0x7f0b0000
+int raw soundone 0x7f0b0001
 int string abc_action_bar_home_description 0x7f0c0000
 int string abc_action_bar_up_description 0x7f0c0001
 int string abc_action_menu_overflow_description 0x7f0c0002

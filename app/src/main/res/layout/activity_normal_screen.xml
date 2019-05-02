@@ -9,11 +9,10 @@
 
     <ImageView
         android:id="@+id/bottle"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="105dp"
-        android:layout_marginLeft="105dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginLeft="125dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/displayData"
         app:srcCompat="@mipmap/waterbottle4" />
@@ -68,11 +67,11 @@
 
     <TextView
         android:id="@+id/displayData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="304dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="35dp"
         android:text="TextView"
         android:textSize="36dp"
         app:layout_constraintStart_toStartOf="parent"

@@ -874,6 +874,7 @@ mipmap waterbottle3
 mipmap waterbottle4
 mipmap workout
 raw sound
+raw soundone
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

@@ -6,36 +6,42 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
 public class NormalScreen extends AppCompatActivity {
 
-    final float RESOLUTION = (float)(22.0/1027);
-    private long secondsToAlarm = 70000; // will change later
+    final float RESOLUTION = (float)(337.5/1027);
+    final float DIFFERENCE = 5;
+    private long secondsToAlarm = 15000; // will change later (15 seconds)
     private CountDownTimer countDownTimer;
     private TextView displayTime, displayData;
+    private ImageView bottle;
     private MediaPlayer player;
     private int[] samples;
     private int sampleIndex, sum;
     private float previousValue, currentValue;
-    private float difference = 50;
     private Thread thread;
     private String formattedWeight;
+    private boolean isMusicPlaying, resetTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        samples = new int[8];
+        samples = new int[4]; // change to 4
         sampleIndex = 0;
         sum = 0;
+        isMusicPlaying = false;
+        resetTime = false;
         currentValue = Integer.parseInt(MyService.getData()) * RESOLUTION;
         previousValue = currentValue;
         setContentView(R.layout.activity_normal_screen);
         displayTime = (TextView)findViewById(R.id.displayTime);
         displayData = (TextView)findViewById(R.id.displayData);
+        bottle = (ImageView)findViewById(R.id.bottle);
         formattedWeight = String.format("%.02f", currentValue);
-        displayData.setText(formattedWeight + " lbs");
+        displayData.setText(formattedWeight + " fluid oz");
         startTimer();
         thread = new Thread(){
             @Override
@@ -47,11 +53,29 @@ public class NormalScreen extends AppCompatActivity {
                             @Override
                             public void run() {
                                 // check if the bottle is in the platform
-                                if(Integer.parseInt(MyService.getData()) < 300){
+                                if(Integer.parseInt(MyService.getData()) > 200){
                                     updateData();
                                 }
-                                if(Math.abs(previousValue - currentValue) > difference){
+                                if(Math.abs(previousValue - currentValue) > DIFFERENCE && resetTime){
                                     resetTimer();
+                                    resetTime = false;
+                                }
+
+                                // set the approximate water bottle content depending on the weight
+                                if(currentValue > 270){
+                                    bottle.setImageResource(R.mipmap.waterbottle4);
+                                }
+                                else if(currentValue > 206){
+                                    bottle.setImageResource(R.mipmap.waterbottle3);
+                                }
+                                else if(currentValue > 142){
+                                    bottle.setImageResource(R.mipmap.waterbottle2);
+                                }
+                                else if(currentValue > 78){
+                                    bottle.setImageResource(R.mipmap.waterbottle1);
+                                }
+                                else{
+                                    bottle.setImageResource(R.mipmap.waterbottle0);
                                 }
                             }
                         });
@@ -78,14 +102,17 @@ public class NormalScreen extends AppCompatActivity {
                 // play sound
                 if(player == null){
                     player = MediaPlayer.create(NormalScreen.this, R.raw.sound);
-                    player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                        @Override
-                        public void onCompletion(MediaPlayer mp) {
-                            stopPlaying();
-                        }
-                    });
+//                    player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//                        @Override
+//                        public void onCompletion(MediaPlayer mp) {
+//                            stopPlaying();
+//                        }
+//                    });
+                    player.setLooping(true);
+                    player.setVolume(60,60);
                 }
                 player.start();
+                isMusicPlaying = true;
                 countDownTimer.cancel();
             }
         }.start();
@@ -109,7 +136,12 @@ public class NormalScreen extends AppCompatActivity {
 
     // disable the alarm
     private void stopPlaying(){
+        // button click only resets timer if the alarm is playing
+        if(isMusicPlaying){
+            resetTimer();
+        }
         if(player != null){
+            isMusicPlaying = false;
             player.release();
             player = null;
         }
@@ -124,7 +156,15 @@ public class NormalScreen extends AppCompatActivity {
 
     // back button
     public void goBack(View view){
-        countDownTimer.cancel();
+//        if(player != null){
+//            isMusicPlaying = false;
+//            player.release();
+//            player = null;
+//        }
+        stopPlaying();
+        if(countDownTimer != null){
+            countDownTimer.cancel();
+        }
         thread.interrupt();
         Intent i = new Intent(this, ModesScreen.class);
         startActivity(i);
@@ -144,12 +184,13 @@ public class NormalScreen extends AppCompatActivity {
         }
         if(sampleIndex == samples.length - 1){
             float average = (sum * RESOLUTION / samples.length);
-            formattedWeight = String.format("%.02f", average);
-            displayData.setText(formattedWeight + " lbs");
+            formattedWeight = String.format("%.01f", average);
+            displayData.setText(formattedWeight + " fluid oz");
             sum = 0;
             sampleIndex = 0;
             previousValue = currentValue;
             currentValue = average;
+            resetTime = true;
         }
         else{
             sampleIndex++;
