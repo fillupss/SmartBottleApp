@@ -38,8 +38,8 @@ public class MyService extends Service {
     private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     // MAC address of the HC-05 bluetooth module
-    //private static String address = "00:14:03:06:8E:DB"; // Marjasen's
-    private static String address = "00:14:03:05:F3:A7"; // Calvin's
+    private static String address = "00:14:03:06:8E:DB"; // Marjasen's
+    //private static String address = "00:14:03:05:F3:A7"; // Calvin's
 
     private BroadcastReceiver mBroadcastReceiver1 = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {

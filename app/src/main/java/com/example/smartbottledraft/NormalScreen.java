@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 public class NormalScreen extends AppCompatActivity {
 
-    final float RESOLUTION = (float)(337.5/1027);
-    final float DIFFERENCE = 5;
+    final float RESOLUTION = (float)(33.75/1027);
+    final float DIFFERENCE = 1.5f;
     private long secondsToAlarm = 15000; // will change later (15 seconds)
     private CountDownTimer countDownTimer;
     private TextView displayTime, displayData;
@@ -62,16 +62,16 @@ public class NormalScreen extends AppCompatActivity {
                                 }
 
                                 // set the approximate water bottle content depending on the weight
-                                if(currentValue > 270){
+                                if(currentValue > 20){
                                     bottle.setImageResource(R.mipmap.waterbottle4);
                                 }
-                                else if(currentValue > 206){
+                                else if(currentValue > 17.5){
                                     bottle.setImageResource(R.mipmap.waterbottle3);
                                 }
-                                else if(currentValue > 142){
+                                else if(currentValue > 15.0){
                                     bottle.setImageResource(R.mipmap.waterbottle2);
                                 }
-                                else if(currentValue > 78){
+                                else if(currentValue > 12.5){
                                     bottle.setImageResource(R.mipmap.waterbottle1);
                                 }
                                 else{
