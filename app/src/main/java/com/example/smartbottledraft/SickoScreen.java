@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class SickoScreen extends AppCompatActivity {
 
     final float RESOLUTION = (float)(33.75/1027);
-    final float DIFFERENCE = 1.5f;
+    final float DIFFERENCE = 1.0f;
     private long secondsToAlarm = 15000; // will change later (15 seconds)
     private CountDownTimer countDownTimer;
     private TextView displayTime, displayData;
