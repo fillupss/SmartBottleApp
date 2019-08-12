@@ -4,3 +4,5 @@ This project is a health application that monitors the user's water consumption.
 
 We plan to update the application along with the device, where there will be a hibernation mode such that the app can run in the background and the Ardunio Uno does not have to transmit data every second. Also we look to add a function that returns the data back to the user on how much water they drink throughout the day and provide feedback. Also we would like to add a functionality to detect what kind water bottle the user uses so we can provide mre accurate data.
 
+Click [here](https://sites.google.com/view/smartbottle/home) to check the website
+
